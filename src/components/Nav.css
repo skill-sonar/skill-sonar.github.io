@@ -63,14 +63,14 @@
 }
 
 .nav__link--skill-active {
-  color: #2563eb;
-  background: #eff6ff;
+  color: #ffffff;
+  background: #2563eb;
   border-color: #2563eb;
 }
 
 .nav__link--skill-active:hover {
-  color: #1d4ed8;
-  background: #dbeafe;
+  color: #ffffff;
+  background: #1d4ed8;
   border-color: #1d4ed8;
 }
 
