@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
+import SimulatedDemo from './SimulatedDemo'
 import './Hero.css'
 
 export default function SkillSonarHero() {
   return (
     <section className="ss-hero">
+      <SimulatedDemo />
       <div className="container">
         <div className="ss-hero__label-row">
           <span className="ss-hero__badge ss-hero__badge--preflight">Preflight</span>
