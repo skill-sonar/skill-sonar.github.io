@@ -1,15 +1,18 @@
 # GitHub Pages 自动构建部署
 # 参考: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 #
-# 首次使用请到仓库 Settings → Pages → Build and deployment → Source 选择 "GitHub Actions"
+# 【重要】首次使用必须到仓库 Settings → Pages → Build and deployment → Source 选择 "GitHub Actions"
+# 若选 "Deploy from a branch" 会部署源码而非构建产物，页面会白屏！
 # 若主分支是 master 而非 main，请将下方 branches 改为 ['master']
+#
+# 若网页在子目录（如 webpage/），请设置 WORKING_DIR 为 'webpage'
 
 name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ['main']   # 推送到 main 时触发，若主分支是 master 请改为 master
-  workflow_dispatch:     # 允许在 Actions 页面手动触发
+    branches: ["main"] # 推送到 main 时触发，若主分支是 master 请改为 master
+  workflow_dispatch: # 允许在 Actions 页面手动触发
 
 permissions:
   contents: read
@@ -17,8 +20,12 @@ permissions:
   id-token: write
 
 concurrency:
-  group: 'pages'
+  group: "pages"
   cancel-in-progress: true
+
+env:
+  # 若源码在子目录（如 webpage/），改为 'webpage'；否则保持 '.'
+  WORKING_DIR: "."
 
 jobs:
   build:
@@ -30,20 +37,23 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: ${{ env.WORKING_DIR }}/package-lock.json
 
       - name: Install dependencies
+        working-directory: ${{ env.WORKING_DIR }}
         run: npm ci
 
       - name: Build
+        working-directory: ${{ env.WORKING_DIR }}
         env:
           # 用户站点 (yourname.github.io) 用 /，项目站点用 /仓库名/
-          GITHUB_PAGES_BASE: ${{ github.event.repository.name == format('{0}.github.io', github.event.repository.owner) && '/' || format('/{0}/', github.event.repository.name) }}
+          GITHUB_PAGES_BASE: ${{ github.event.repository.name == format('{0}.github.io', github.repository_owner) && '/' || format('/{0}/', github.event.repository.name) }}
         run: npm run build
 
       - name: Add 404 for SPA routing
-        run: cp dist/index.html dist/404.html
+        run: cp ${{ env.WORKING_DIR }}/dist/index.html ${{ env.WORKING_DIR }}/dist/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -51,7 +61,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: ${{ env.WORKING_DIR }}/dist
 
   deploy:
     environment:
