@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" fill="none">
+  <defs>
+    <linearGradient id="shieldBodyLeft" x1="52" y1="44" x2="128" y2="212" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67C8FF"/>
+      <stop offset="1" stop-color="#2493F3"/>
+    </linearGradient>
+    <linearGradient id="shieldBodyRight" x1="128" y1="44" x2="204" y2="212" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1876F2"/>
+      <stop offset="1" stop-color="#0A4FC4"/>
+    </linearGradient>
+    <linearGradient id="outline" x1="128" y1="24" x2="128" y2="236" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0D63E6"/>
+      <stop offset="1" stop-color="#0844A9"/>
+    </linearGradient>
+    <linearGradient id="innerStroke" x1="128" y1="44" x2="128" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#53B9FF"/>
+      <stop offset="1" stop-color="#1175EA"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="70" y1="62" x2="116" y2="164" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer shield -->
+  <path
+    d="M128 20C111 39 84 59 40 66V118C40 175 78 216 128 238C178 216 216 175 216 118V66C172 59 145 39 128 20Z"
+    fill="url(#outline)"
+  />
+
+  <!-- Main body left -->
+  <path
+    d="M128 42C114 55 92 69 58 75V116C58 161 87 195 128 217V42Z"
+    fill="url(#shieldBodyLeft)"
+  />
+
+  <!-- Main body right -->
+  <path
+    d="M128 42V217C169 195 198 161 198 116V75C164 69 142 55 128 42Z"
+    fill="url(#shieldBodyRight)"
+  />
+
+  <!-- Inner border -->
+  <path
+    d="M128 46C115 58 95 70 64 76V116C64 157 90 188 128 208C166 188 192 157 192 116V76C161 70 141 58 128 46Z"
+    stroke="url(#innerStroke)"
+    stroke-width="8"
+    stroke-linejoin="round"
+  />
+
+  <!-- Center seam -->
+  <path d="M128 42V217" stroke="#0B58D7" stroke-width="2" opacity="0.45"/>
+
+  <!-- Highlight -->
+  <path
+    d="M78 82C98 79 117 68 131 54C114 84 96 112 84 148C76 131 72 103 78 82Z"
+    fill="url(#shine)"
+  />
+</svg>
