@@ -48,44 +48,53 @@
   border-radius: var(--radius-md);
   font-size: 13.5px;
   font-weight: 500;
-  color: var(--color-text-muted);
+  color: #111827;
+  background: #ffffff;
   text-decoration: none;
   transition: all 0.15s ease;
-  border: 1.5px solid transparent;
+  border: 1.5px solid #d1d5db;
 }
 
 .nav__link:hover {
-  color: var(--color-text);
-  background: var(--color-surface-alt);
+  color: #111827;
+  background: #f9fafb;
+  border-color: #9ca3af;
   text-decoration: none;
 }
 
-.nav__link--active {
-  color: var(--color-accent);
-  background: var(--color-accent-light);
-  border-color: rgba(37, 99, 235, 0.15);
+.nav__link--skill-active {
+  color: #2563eb;
+  background: #eff6ff;
+  border-color: #2563eb;
 }
 
-.nav__link--active:hover {
-  color: var(--color-accent-hover);
-  background: var(--color-accent-light);
+.nav__link--skill-active:hover {
+  color: #1d4ed8;
+  background: #dbeafe;
+  border-color: #1d4ed8;
 }
 
-.nav__link--cta {
-  background: var(--color-accent);
-  color: #fff;
-  border-color: var(--color-accent);
+.nav__link--scanner {
+  color: #2563eb;
+  background: #ffffff;
+  border-color: #2563eb;
 }
 
-.nav__link--cta:hover {
-  background: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
-  color: #fff;
+.nav__link--scanner:hover {
+  color: #1d4ed8;
+  background: #eff6ff;
+  border-color: #1d4ed8;
   text-decoration: none;
 }
 
-.nav__link--cta-active {
-  background: var(--color-accent-hover);
-  color: #fff;
-  border-color: var(--color-accent-hover);
+.nav__link--scanner-active {
+  color: #ffffff;
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.nav__link--scanner-active:hover {
+  color: #ffffff;
+  background: #1d4ed8;
+  border-color: #1d4ed8;
 }

@@ -13,7 +13,7 @@ export default function Nav() {
           <NavLink
             to="/skill-sonar"
             className={({ isActive }) =>
-              'nav__link' + (isActive ? ' nav__link--active' : '')
+              'nav__link nav__link--skill' + (isActive ? ' nav__link--skill-active' : '')
             }
           >
             Skill Sonar
@@ -21,7 +21,7 @@ export default function Nav() {
           <NavLink
             to="/scanner"
             className={({ isActive }) =>
-              'nav__link nav__link--cta' + (isActive ? ' nav__link--cta-active' : '')
+              'nav__link nav__link--scanner' + (isActive ? ' nav__link--scanner-active' : '')
             }
           >
             Try Scanner
