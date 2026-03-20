@@ -1,7 +1,9 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import './Nav.css'
 
 export default function Nav() {
+  const location = useLocation()
+
   return (
     <header className="nav">
       <div className="nav__inner">
@@ -13,7 +15,7 @@ export default function Nav() {
           <NavLink
             to="/skill-sonar"
             className={({ isActive }) =>
-              'nav__link' + (isActive ? ' nav__link--active' : '')
+              'nav__link nav__link--skill' + (isActive || location.pathname === '/' ? ' nav__link--skill-active' : '')
             }
           >
             Skill Sonar
@@ -21,7 +23,7 @@ export default function Nav() {
           <NavLink
             to="/scanner"
             className={({ isActive }) =>
-              'nav__link nav__link--cta' + (isActive ? ' nav__link--cta-active' : '')
+              'nav__link nav__link--scanner' + (isActive ? ' nav__link--scanner-active' : '')
             }
           >
             Try Scanner
