@@ -1,0 +1,76 @@
+.wtu__intro {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  max-width: 580px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.wtu__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 640px) {
+  .wtu__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wtu__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.wtu__card--accent {
+  border-color: rgba(37, 99, 235, 0.25);
+  background: var(--color-accent-light);
+}
+
+.wtu__card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.wtu__card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.wtu__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wtu__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.wtu__item--neutral {
+  color: var(--color-text-muted);
+}
+
+.wtu__item--accent {
+  color: var(--color-text);
+}
+
+.wtu__icon {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-top: 2px;
+}

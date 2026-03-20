@@ -1,0 +1,206 @@
+/* ── Top grid ─────────────────────────────────────────────── */
+.td__top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+@media (max-width: 720px) {
+  .td__top-grid  { grid-template-columns: 1fr; gap: 40px; }
+  .td__bottom-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Threat list ─────────────────────────────────────────────── */
+.td__threats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.td__threat {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.td__threat:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateX(3px);
+}
+
+.td__threat-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.td__threat--red    .td__threat-icon { background: var(--color-danger-light);   color: var(--color-danger); }
+.td__threat--violet .td__threat-icon { background: var(--color-guard-light);    color: var(--color-guard); }
+.td__threat--amber  .td__threat-icon { background: var(--color-warning-light);  color: var(--color-warning); }
+
+.td__threat--red    { border-left: 3px solid var(--color-danger); }
+.td__threat--violet { border-left: 3px solid var(--color-guard); }
+.td__threat--amber  { border-left: 3px solid var(--color-warning); }
+
+.td__threat-name {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 3px;
+}
+
+.td__threat-desc {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+/* ── Anti-manipulation box ────────────────────────────────── */
+.td__antimanip {
+  border: 1.5px solid #fca5a5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.td__antimanip-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  background: #fff1f2;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #991b1b;
+  border-bottom: 1px solid #fca5a5;
+}
+
+.td__antimanip-header svg {
+  color: #dc2626;
+  flex-shrink: 0;
+}
+
+.td__antimanip-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.td__antimanip-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.td__antimanip-item:last-child {
+  border-bottom: none;
+}
+
+.td__antimanip-x {
+  color: var(--color-danger);
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+  width: 16px;
+}
+
+.td__antimanip-text {
+  flex: 1;
+  font-size: 12.5px;
+  color: var(--color-text);
+  font-style: italic;
+}
+
+.td__antimanip-result {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-danger);
+  background: var(--color-danger-light);
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Bottom grid ─────────────────────────────────────────── */
+.td__bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ── Compound detection ──────────────────────────────────── */
+.td__compound-desc {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  margin-top: 12px;
+}
+
+.td__compound-quote {
+  border-left: 3px solid var(--color-accent);
+  padding: 14px 18px;
+  background: var(--color-accent-light);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 13.5px;
+  color: var(--color-text);
+  line-height: 1.65;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ── Reports ─────────────────────────────────────────────── */
+.td__reports-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.td__reports-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  padding: 12px 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.td__reports-list li strong {
+  color: var(--color-text);
+}
+
+.td__reports-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.td__inline-code {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--color-text);
+}

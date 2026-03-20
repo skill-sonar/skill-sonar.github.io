@@ -1,0 +1,40 @@
+.gp-hero {
+  padding: 80px 0 64px;
+  background: linear-gradient(160deg, #f5f3ff 0%, #f8f9fb 60%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.gp-hero__label {
+  margin-bottom: 20px;
+}
+
+.gp-hero__title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  color: var(--color-text);
+  line-height: 1.15;
+}
+
+.gp-hero__subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+  max-width: 580px;
+}
+
+.gp-hero__desc {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  max-width: 560px;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.gp-hero__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,95 @@
+.wr__intro {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  line-height: 1.75;
+  margin-bottom: 8px;
+}
+
+.wr__sub {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+.wr__phases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.wr__phase {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.wr__phase-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.wr__contrast {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 28px;
+  max-width: 560px;
+  box-shadow: var(--shadow-sm);
+}
+
+.wr__contrast-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wr__contrast-item p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.wr__contrast-item em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.wr__contrast-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.wr__contrast-badge--muted {
+  background: var(--color-surface-alt);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+.wr__contrast-badge--purple {
+  background: var(--color-guard-light);
+  color: var(--color-guard);
+}
+
+.wr__contrast-arrow {
+  font-size: 20px;
+  color: var(--color-border);
+  flex-shrink: 0;
+}

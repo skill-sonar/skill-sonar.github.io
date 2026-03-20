@@ -1,0 +1,263 @@
+/* ── 2-Stage Cards ─────────────────────────────────────────── */
+.lc__stages {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .lc__stages {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .lc__stage-arrow {
+    justify-content: center;
+    transform: rotate(90deg);
+  }
+}
+
+.lc__stage {
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  border: 1.5px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.lc__stage::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.lc__stage--preflight {
+  background: linear-gradient(135deg, #eff6ff 0%, #f8faff 100%);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.lc__stage--preflight::before {
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+}
+
+.lc__stage--runtime {
+  background: linear-gradient(135deg, #f5f3ff 0%, #faf9ff 100%);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+.lc__stage--runtime::before {
+  background: linear-gradient(90deg, #7c3aed, #a78bfa);
+}
+
+.lc__stage-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.lc__stage--preflight .lc__stage-icon {
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+}
+
+.lc__stage--runtime .lc__stage-icon {
+  background: rgba(124, 58, 237, 0.1);
+  color: #7c3aed;
+}
+
+.lc__stage-tag {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.lc__stage--preflight .lc__stage-tag { color: #2563eb; }
+.lc__stage--runtime .lc__stage-tag { color: #7c3aed; }
+
+.lc__stage-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.lc__stage-desc {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.lc__stage-detail {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(0,0,0,0.04);
+}
+
+.lc__stage-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0 20px;
+  color: var(--color-text-muted);
+}
+
+.lc__stage-arrow svg { opacity: 0.3; }
+
+.lc__stage-arrow span {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* ── 9 Risk Areas Grid ─────────────────────────────────────── */
+.lc__risk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 720px) {
+  .lc__risk-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .lc__risk-grid { grid-template-columns: 1fr; }
+}
+
+.lc__risk-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 20px 18px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.lc__risk-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.lc__risk-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.lc__risk-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.lc__risk-desc {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ── 6 Stage Guards Pipeline ───────────────────────────────── */
+.lc__guards {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.lc__guard {
+  flex: 1;
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 16px;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--color-border);
+  position: relative;
+  background: var(--color-surface);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.lc__guard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.lc__guard + .lc__guard {
+  margin-left: 8px;
+}
+
+.lc__guard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+}
+
+.lc__guard--blue::before   { background: #2563eb; }
+.lc__guard--violet::before { background: #7c3aed; }
+.lc__guard--amber::before  { background: #d97706; }
+.lc__guard--red::before    { background: #dc2626; }
+
+.lc__guard-index {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.lc__guard-stage {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.lc__guard--blue .lc__guard-stage   { color: #2563eb; }
+.lc__guard--violet .lc__guard-stage { color: #7c3aed; }
+.lc__guard--amber .lc__guard-stage  { color: #d97706; }
+.lc__guard--red .lc__guard-stage    { color: #dc2626; }
+
+.lc__guard-desc {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.lc__guard-arrow {
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--color-text-muted);
+  z-index: 1;
+  background: var(--color-bg);
+  padding: 2px;
+  opacity: 0.5;
+}
