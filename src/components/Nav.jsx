@@ -8,7 +8,7 @@ export default function Nav() {
     <header className="nav">
       <div className="nav__inner">
         <div className="nav__brand">
-          <span className="nav__brand-icon">🛡</span>
+          <img src="/skill-sonar.png" alt="" className="nav__brand-icon" />
           <span className="nav__brand-text">Skill Safety</span>
         </div>
         <nav className="nav__links">

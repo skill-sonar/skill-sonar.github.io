@@ -26,8 +26,10 @@
 }
 
 .nav__brand-icon {
-  font-size: 18px;
-  line-height: 1;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
 }
 
 .nav__brand-text {
