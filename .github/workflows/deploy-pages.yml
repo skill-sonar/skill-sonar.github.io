@@ -46,12 +46,17 @@ jobs:
         working-directory: ${{ env.WORKING_DIR }}
         run: npm ci
 
+      - name: Remove .env to prevent placeholder override
+        working-directory: ${{ env.WORKING_DIR }}
+        run: rm -f .env .env.production
+
       - name: Build
         working-directory: ${{ env.WORKING_DIR }}
         env:
           # 用户站点 (yourname.github.io) 用 /，项目站点用 /仓库名/
           GITHUB_PAGES_BASE: ${{ github.event.repository.name == format('{0}.github.io', github.repository_owner) && '/' || format('/{0}/', github.event.repository.name) }}
-          # VITE_API_BASE_URL 来自 github-pages 环境的 Variables，无需在此重复
+          # 必须显式传入，否则可能被 .env 占位符覆盖
+          VITE_API_BASE_URL: ${{ env.VITE_API_BASE_URL }}
         run: npm run build
 
       - name: Add 404 for SPA routing
