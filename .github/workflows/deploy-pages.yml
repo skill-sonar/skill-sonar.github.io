@@ -30,6 +30,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-pages # 使用此环境后，其 Variables 中的 VITE_API_BASE_URL 会在 build 时可用
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -50,8 +51,7 @@ jobs:
         env:
           # 用户站点 (yourname.github.io) 用 /，项目站点用 /仓库名/
           GITHUB_PAGES_BASE: ${{ github.event.repository.name == format('{0}.github.io', github.repository_owner) && '/' || format('/{0}/', github.event.repository.name) }}
-          # 后端 API 地址：在 Settings → Secrets and variables → Actions → Variables 添加 VITE_API_BASE_URL
-          VITE_API_BASE_URL: ${{ vars.VITE_API_BASE_URL }}
+          # VITE_API_BASE_URL 来自 github-pages 环境的 Variables，无需在此重复
         run: npm run build
 
       - name: Add 404 for SPA routing
